@@ -1,5 +1,9 @@
 # random-word
 
+
+[![PyPI](https://img.shields.io/pypi/v/nine.svg)](https://pypi.org/project/random-word/)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg)](https://pypi.org/project/random-word/)
+[![PyPI - Status](https://img.shields.io/pypi/status/Django.svg)](https://pypi.org/project/random-word/)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d6ff0d51be474f1bb8b031c2c418b541)](https://www.codacy.com/app/vaibhavsingh97/random-word?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=vaibhavsingh97/random-word&amp;utm_campaign=Badge_Grade)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://vaibhavsingh97.mit-license.org/)
 

@@ -8,7 +8,7 @@ setuptools.setup(
     name=random_word.__name__,
     version=random_word.__version__,
     author=random_word.__author__,
-    author_email="author@vaibhavsingh97.com",
+    author_email="hi@vaibhavsingh97.com",
     description="This is a simple python package to generate random english words",
     long_description=long_description,
     long_description_content_type="text/markdown",
