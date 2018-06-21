@@ -22,7 +22,7 @@ class RandomWords(object):
             raise "API key either expired or not working. Please raise issue at {}".format(self.issue_url)
 
     def get_random_word(self, **kwargs):
-        """Returns a word
+        """Returns a single random word
 
         Args:
             hasDictionaryDef, str: Only return words with dictionary definitions (optional)
@@ -79,8 +79,6 @@ class RandomWords(object):
         Args:
             includePartOfSpeech, str: CSV part-of-speech values to include (optional)
             excludePartOfSpeech, str: CSV part-of-speech values to exclude (optional)
-            sortBy, str: Attribute to sort by (optional)
-            sortOrder, str: Sort direction (optional)
             hasDictionaryDef, str: Only return words with dictionary definitions (optional)
             minCorpusCount, int: Minimum corpus frequency for terms (optional)
             maxCorpusCount, int: Maximum corpus frequency for terms (optional)
@@ -88,6 +86,8 @@ class RandomWords(object):
             maxDictionaryCount, int: Maximum dictionary count (optional)
             minLength, int: Minimum word length (optional)
             maxLength, int: Maximum word length (optional)
+            sortBy, str: Attribute to sort by (optional)
+            sortOrder, str: Sort direction (optional)
             limit, int: Maximum number of results to return (optional)
 
         Returns: list[Random Words]
@@ -127,7 +127,7 @@ class RandomWords(object):
             url += "&sortBy=" + str(params['sortBy'])
         if ('sortOrder' in params):
             value = ['asc', 'desc']
-            if params['sortBy'] not in value:
+            if params['sortOrder'] not in value:
                 raise  ValueError("Got an unexpected value to argument sortOrder")
             url += "&sortOrder=" + str(params['sortOrder'])
         if ('limit' in params):
@@ -148,7 +148,7 @@ class RandomWords(object):
         Args:
             date, str: Fetches by date in yyyy-MM-dd (optional)
 
-        Returns: WordOfTheDay
+        Returns: Json(WordOfTheDay)
         """
 
         url = "https://api.wordnik.com/v4/words.json/wordOfTheDay?"
