@@ -5,6 +5,7 @@ from . import config
 
 API_KEY = config.API_KEY
 
+
 class RandomWords(object):
     """ Class for genrating random words"""
 
@@ -18,7 +19,8 @@ class RandomWords(object):
         if response.status_code == 200 and response.json()['valid'] == True:
             pass
         else:
-            raise "API key either expired or not working. Please raise issue at {}".format(self.issue_url)
+            raise "API key either expired or not working. Please raise issue at {}".format(
+                self.issue_url)
 
     def get_random_word(self, **kwargs):
         """Returns a single random word
@@ -38,11 +40,13 @@ class RandomWords(object):
         """
 
         url = "https://api.wordnik.com/v4/words.json/randomWord?"
-        allParams = ['hasDictionaryDef', 'includePartOfSpeech', 'excludePartOfSpeech', 'minCorpusCount', 'maxCorpusCount', 'minDictionaryCount', 'maxDictionaryCount', 'minLength', 'maxLength']
+        allParams = ['hasDictionaryDef', 'includePartOfSpeech', 'excludePartOfSpeech', 'minCorpusCount',
+                     'maxCorpusCount', 'minDictionaryCount', 'maxDictionaryCount', 'minLength', 'maxLength']
         params = locals()
         for (key, val) in params['kwargs'].items():
             if key not in allParams:
-                raise TypeError("Got an unexpected keyword argument '%s' to method get_random_word" % key)
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s' to method get_random_word" % key)
             params[key] = val
         del params['kwargs']
 
@@ -70,7 +74,8 @@ class RandomWords(object):
         if response.status_code == 200:
             return result['word']
         else:
-            raise Exception("Error occured, No result found. If you think this was a mistake than raise issue at {}".format(self.issue_url))
+            raise Exception(
+                "Error occured, No result found. If you think this was a mistake than raise issue at {}".format(self.issue_url))
 
     def get_random_words(self, **kwargs):
         """Returns a list of random words
@@ -93,11 +98,13 @@ class RandomWords(object):
         """
 
         url = "https://api.wordnik.com/v4/words.json/randomWords?"
-        allParams = ['hasDictionaryDef', 'includePartOfSpeech', 'excludePartOfSpeech', 'minCorpusCount', 'maxCorpusCount', 'minDictionaryCount', 'maxDictionaryCount', 'minLength', 'maxLength', 'sortBy', 'sortOrder', 'limit']
+        allParams = ['hasDictionaryDef', 'includePartOfSpeech', 'excludePartOfSpeech', 'minCorpusCount', 'maxCorpusCount',
+                     'minDictionaryCount', 'maxDictionaryCount', 'minLength', 'maxLength', 'sortBy', 'sortOrder', 'limit']
         params = locals()
         for (key, val) in params['kwargs'].items():
             if key not in allParams:
-                raise TypeError("Got an unexpected keyword argument '%s' to method get_random_word" % key)
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s' to method get_random_word" % key)
             params[key] = val
         del params['kwargs']
 
@@ -122,12 +129,13 @@ class RandomWords(object):
         if ('sortBy' in params):
             value = ['alpha', 'count']
             if params['sortBy'] not in value:
-                raise  ValueError("Got an unexpected value to argument sortBy")
+                raise ValueError("Got an unexpected value to argument sortBy")
             url += "&sortBy=" + str(params['sortBy'])
         if ('sortOrder' in params):
             value = ['asc', 'desc']
             if params['sortOrder'] not in value:
-                raise  ValueError("Got an unexpected value to argument sortOrder")
+                raise ValueError(
+                    "Got an unexpected value to argument sortOrder")
             url += "&sortOrder=" + str(params['sortOrder'])
         if ('limit' in params):
             url += "&limit=" + str(params['limit'])
@@ -140,7 +148,8 @@ class RandomWords(object):
                 word_list.append(word['word'])
             return word_list
         else:
-            raise Exception("Error occured, No result found. If you think this was a mistake than raise issue at {}".format(self.issue_url))
+            raise Exception(
+                "Error occured, No result found. If you think this was a mistake than raise issue at {}".format(self.issue_url))
 
     def word_of_the_day(self, **kwargs):
         """Returns a specific WordOfTheDay
@@ -155,7 +164,8 @@ class RandomWords(object):
         params = locals()
         for (key, val) in params['kwargs'].items():
             if key not in allParams:
-                raise TypeError("Got an unexpected keyword argument '%s' to method get_random_word" % key)
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s' to method get_random_word" % key)
             params[key] = val
         del params['kwargs']
 
@@ -176,4 +186,5 @@ class RandomWords(object):
                 'definations': definitions
             })
         else:
-            raise Exception("Error occured, No result found. If you think this was a mistake than raise issue at {}".format(self.issue_url))
+            raise Exception(
+                "Error occured, No result found. If you think this was a mistake than raise issue at {}".format(self.issue_url))

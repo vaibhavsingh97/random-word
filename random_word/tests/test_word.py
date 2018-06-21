@@ -1,6 +1,7 @@
 from unittest import TestCase, main
 from random_word import RandomWords
 
+
 class RandomWordTest(TestCase):
     def set_up(self):
         r = RandomWords()
@@ -13,6 +14,7 @@ class RandomWordTest(TestCase):
 
         def word_of_the_day(self):
             return r.word_of_the_day()
+
 
 if __name__ == '__main__':
     main()
