@@ -1,4 +1,3 @@
-import os
 import json
 import requests
 import datetime
@@ -137,8 +136,8 @@ class RandomWords(object):
         result = response.json()
         word_list = []
         if response.status_code == 200:
-            for word in range(len(result)):
-                word_list.append(result[word]['word'])
+            for word in result:
+                word_list.append(word['word'])
             return word_list
         else:
             raise Exception("Error occured, No result found. If you think this was a mistake than raise issue at {}".format(self.issue_url))
@@ -171,7 +170,6 @@ class RandomWords(object):
         result = response.json()
         if response.status_code == 200:
             word = result['word']
-            examples = result['examples']
             definitions = result['definitions']
             return json.dumps({
                 'word': word,

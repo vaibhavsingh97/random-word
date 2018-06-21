@@ -1,7 +1,12 @@
 # random-word
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d6ff0d51be474f1bb8b031c2c418b541)](https://www.codacy.com/app/vaibhavsingh97/random-word?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=vaibhavsingh97/random-word&amp;utm_campaign=Badge_Grade)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://vaibhavsingh97.mit-license.org/)
+
 This is a simple python package to generate random english words.
-If you need help after reading the below, please find me at @vaibhavsingh97 on Twitter.
+If you need help after reading the below, please find me at [@vaibhavsingh97](https://twitter.com/vaibhavsingh97) on Twitter.
+
+If you love the package, please :star2: the repo.
 
 ## Basic Setup
 
@@ -49,7 +54,7 @@ r.word_of_the_day()
     - maxLength (integer) -  Maximum word length (optional)
 
     ```python
-    r.get_random_word(hasDictionaryDef="true", includePartOfSpeech="noun,verb", minCorpusCount=1, maxCorpusCount=10, minDictionaryCount=1, maxDictionaryCount=10, minLength=5, minLength=10)
+    r.get_random_word(hasDictionaryDef="true", includePartOfSpeech="noun,verb", minCorpusCount=1, maxCorpusCount=10, minDictionaryCount=1, maxDictionaryCount=10, minLength=5, maxLength=10)
 
     # Output: pediophobia
     ```
