@@ -1,7 +1,8 @@
 import json
-import requests
 import datetime
 from . import config
+from random_word.utils.utills import request_url, check_payload_items
+from urllib.parse import urlencode, quote_plus
 
 API_KEY = config.API_KEY
 
@@ -15,7 +16,7 @@ class RandomWords(object):
         if self.__api_key == "" or None:
             raise "API key not found"
         url = "https://api.wordnik.com/v4/account.json/apiTokenStatus?api_key=" + self.__api_key
-        response = requests.get(url)
+        response = request_url(url)
         if response.status_code == 200 and response.json()['valid'] == True:
             pass
         else:
@@ -43,33 +44,12 @@ class RandomWords(object):
         allParams = ['hasDictionaryDef', 'includePartOfSpeech', 'excludePartOfSpeech', 'minCorpusCount',
                      'maxCorpusCount', 'minDictionaryCount', 'maxDictionaryCount', 'minLength', 'maxLength']
         params = locals()
-        for (key, val) in params['kwargs'].items():
-            if key not in allParams:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s' to method get_random_word" % key)
-            params[key] = val
+        payload = params['kwargs']
+        check_payload_items(payload, allParams)
+        payload['api_key'] = self.__api_key
         del params['kwargs']
-
-        if ('hasDictionaryDef' in params):
-            url += "&hasDictionaryDef=" + str(params['hasDictionaryDef'])
-        if ('includePartOfSpeech' in params):
-            url += "&includePartOfSpeech=" + str(params['includePartOfSpeech'])
-        if ('excludePartOfSpeech' in params):
-            url += "&excludePartOfSpeech=" + str(params['excludePartOfSpeech'])
-        if ('minCorpusCount' in params):
-            url += "&minCorpusCount=" + str(params['minCorpusCount'])
-        if ('maxCorpusCount' in params):
-            url += "&maxCorpusCount=" + str(params['maxCorpusCount'])
-        if ('minDictionaryCount' in params):
-            url += "&minDictionaryCount=" + str(params['minDictionaryCount'])
-        if ('maxDictionaryCount' in params):
-            url += "&maxDictionaryCount=" + str(params['maxDictionaryCount'])
-        if ('minLength' in params):
-            url += "&minLength=" + str(params['minLength'])
-        if ('maxLength' in params):
-            url += "&maxLength=" + str(params['maxLength'])
-        url += "&api_key=" + self.__api_key
-        response = requests.get(url)
+        url += urlencode(payload, quote_via=quote_plus)
+        response = request_url(url)
         result = response.json()
         if response.status_code == 200:
             return result['word']
@@ -101,46 +81,21 @@ class RandomWords(object):
         allParams = ['hasDictionaryDef', 'includePartOfSpeech', 'excludePartOfSpeech', 'minCorpusCount', 'maxCorpusCount',
                      'minDictionaryCount', 'maxDictionaryCount', 'minLength', 'maxLength', 'sortBy', 'sortOrder', 'limit']
         params = locals()
-        for (key, val) in params['kwargs'].items():
-            if key not in allParams:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s' to method get_random_word" % key)
-            params[key] = val
+        payload = params['kwargs']
+        check_payload_items(payload, allParams)
+        payload['api_key'] = self.__api_key
         del params['kwargs']
-
-        if ('hasDictionaryDef' in params):
-            url += "&hasDictionaryDef=" + str(params['hasDictionaryDef'])
-        if ('includePartOfSpeech' in params):
-            url += "&includePartOfSpeech=" + str(params['includePartOfSpeech'])
-        if ('excludePartOfSpeech' in params):
-            url += "&excludePartOfSpeech=" + str(params['excludePartOfSpeech'])
-        if ('minCorpusCount' in params):
-            url += "&minCorpusCount=" + str(params['minCorpusCount'])
-        if ('maxCorpusCount' in params):
-            url += "&maxCorpusCount=" + str(params['maxCorpusCount'])
-        if ('minDictionaryCount' in params):
-            url += "&minDictionaryCount=" + str(params['minDictionaryCount'])
-        if ('maxDictionaryCount' in params):
-            url += "&maxDictionaryCount=" + str(params['maxDictionaryCount'])
-        if ('minLength' in params):
-            url += "&minLength=" + str(params['minLength'])
-        if ('maxLength' in params):
-            url += "&maxLength=" + str(params['maxLength'])
-        if ('sortBy' in params):
+        if 'sortBy' in payload:
             value = ['alpha', 'count']
-            if params['sortBy'] not in value:
+            if payload['sortBy'] not in value:
                 raise ValueError("Got an unexpected value to argument sortBy")
-            url += "&sortBy=" + str(params['sortBy'])
-        if ('sortOrder' in params):
+        if 'sortOrder' in payload:
             value = ['asc', 'desc']
-            if params['sortOrder'] not in value:
+            if payload['sortOrder'] not in value:
                 raise ValueError(
                     "Got an unexpected value to argument sortOrder")
-            url += "&sortOrder=" + str(params['sortOrder'])
-        if ('limit' in params):
-            url += "&limit=" + str(params['limit'])
-        url += "&api_key=" + self.__api_key
-        response = requests.get(url)
+        url += urlencode(payload, quote_via=quote_plus)
+        response = request_url(url)
         result = response.json()
         word_list = []
         if response.status_code == 200:
@@ -162,21 +117,17 @@ class RandomWords(object):
         url = "https://api.wordnik.com/v4/words.json/wordOfTheDay?"
         allParams = ['date']
         params = locals()
-        for (key, val) in params['kwargs'].items():
-            if key not in allParams:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s' to method get_random_word" % key)
-            params[key] = val
+        payload = params['kwargs']
+        check_payload_items(payload, allParams)
+        payload['api_key'] = self.__api_key
         del params['kwargs']
-
-        if ('date' in params):
+        if 'date' in payload:
             try:
-                datetime.datetime.strptime(params['date'], '%Y-%m-%d')
+                datetime.datetime.strptime(payload['date'], '%Y-%m-%d')
             except ValueError:
                 raise ValueError("Incorrect data format, should be YYYY-MM-DD")
-            url += "&date=" + str(params['date'])
-        url += "&api_key=" + self.__api_key
-        response = requests.get(url)
+        url += urlencode(payload, quote_via=quote_plus)
+        response = request_url(url)
         result = response.json()
         if response.status_code == 200:
             word = result['word']
