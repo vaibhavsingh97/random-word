@@ -9,7 +9,7 @@ setuptools.setup(
     version=random_word.__version__,
     author=random_word.__author__,
     author_email="hi@vaibhavsingh97.com",
-    description="This is a simple python package to generate random english words",
+    description="This is a simple python package to generate random english words random word generator",
     long_description=long_description,
     long_description_content_type="text/markdown",
     license='MIT',
