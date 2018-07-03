@@ -14,7 +14,6 @@ class TestRandomWord(TestCase):
 
     def test_word_of_the_day(self):
         return self.r.word_of_the_day()
-    
 
 if __name__ == '__main__':
     main()
