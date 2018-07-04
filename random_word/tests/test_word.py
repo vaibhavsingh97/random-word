@@ -2,19 +2,19 @@ from unittest import TestCase, main
 from random_word import RandomWords
 
 
-class RandomWordTest(TestCase):
-    def set_up(self):
-        r = RandomWords()
+class TestRandomWord(TestCase):
 
-        def random_word(self):
-            return r.get_random_word()
+    r = RandomWords()
 
-        def random_words(self):
-            return r.get_random_words()
+    def test_random_word(self):
+        return self.r.get_random_word()
 
-        def word_of_the_day(self):
-            return r.word_of_the_day()
+    def test_random_words(self):
+        return self.r.get_random_words()
 
+    def test_word_of_the_day(self):
+        return self.r.word_of_the_day()
 
 if __name__ == '__main__':
     main()
+    
