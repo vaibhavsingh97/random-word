@@ -21,6 +21,10 @@ $ easy_install random-word
 $ pip install random-word
 ```
 >>>>for python3 use <pre> $ pip3 install random-word</pre>
+
+
+
+
 Or just clone this repository and run:
 
 ```sh
