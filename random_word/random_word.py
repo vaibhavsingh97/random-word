@@ -134,8 +134,43 @@ class RandomWords(object):
             definitions = result['definitions']
             return json.dumps({
                 'word': word,
-                'definations': definitions
+                'definitions': definitions
             })
         else:
             raise Exception(
                 "Error occured, No result found. If you think this was a mistake than raise issue at {}".format(self.issue_url))
+
+    def get_word_definitions(self, **kwargs):
+        """Returns a single random word
+
+        Args:
+            word, str: Word to return definitions for (required)
+            limit, int: Maximum number of results to return (optional)
+            partOfSpeech, str: CSV list of part-of-speech types (optional)
+            includeRelated, str: Return related words with definitions (optional)
+            sourceDictionaries, list: Source dictionary to return definitions from. (optional)
+            useCanonical, str: If true (default: false) will try to return the correct word root (optional)
+            includeTags, str: Return a closed set of XML tags in response (optional)
+
+        Returns: String, Definitions
+        """
+
+        url = "https://api.wordnik.com/v4/words.json/randomWord?"
+        allParams = ['word', 'limit', 'partOfSpeech', 'includeRelated',
+                     'sourceDictionaries', 'useCanonical', 'includeTags']
+        params = locals()
+        payload = params['kwargs']
+        check_payload_items(payload, allParams)
+        payload['api_key'] = self.__api_key
+        del params['kwargs']
+        url += urlencode(payload, quote_via=quote_plus)
+        response = request_url(url)
+        result = response.json()
+        json_status = response.status_code
+        if json_status == 200 and response.json()['valid'] == True:
+            for text in result:
+                return text['text']
+        else:
+            raise Exception(
+                "Error occured, No result found. If you think this was a mistake than raise issue at {}".format(self.issue_url))
+

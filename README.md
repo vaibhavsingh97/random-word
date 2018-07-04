@@ -12,7 +12,7 @@ If you need help after reading the below, please find me at [@vaibhavsingh97](ht
 
 If you love the package, please :star2: the repo.
 
-## Basic Setup
+## Installation
 
 You should be able to install using `easy_install` or `pip` in the usual ways:
 
@@ -41,6 +41,8 @@ r.get_random_word()
 r.get_random_words()
 # Return Word of the day
 r.word_of_the_day()
+# Return meaning of the Word, @word : The word which meaning to be searched for
+r.word_meaning(word)
 ```
 
 ## Advance Usage
@@ -93,6 +95,42 @@ r.word_of_the_day()
 
     # Output: {"word": "qualtagh", "definations": [{"text": "The first person one encounters, either after leaving one\'s home or (sometimes) outside one\'s home, especially on New Year\'s Day.", "source": "wiktionary", "partOfSpeech": "noun"}, {"text": "A Christmas or New Year\'s ceremony, in the Isle of Man; one who takes part in the ceremony. See the first extract.", "source": "century", "partOfSpeech": "noun"}]}
     ```
+4. To get meaning of the word we can use optional parameters with required parameter @word
+    - `word(string)` - Word to return definitions for. (required)
+    - `limit(integer)` - Maximum number of results to return. (optional)
+    -`partOfSpeech(string)` - CSV list of part-of-speech types. (optional)
+    -`includeRelated(string)` -(default: false) Return related words with definitions (optional)
+    -`sourceDictionaries(array)` - Source dictionary to return definitions from. (optional)
+    -`useCanonical(string)` - If true (default: false) will try to return the correct word root. (optional)
+    - `includeTags(string)` - (default: false) Return a closed set of XML tags in response. (optional)
+    ```python
+    r.word_meaning(word = 'window', limit = 2, partOfSpeech = "noun", includeRelated = "false", sourceDictionaries = "all", useCanonical = "false", includeTags = "false")
+    # Output: A framework enclosing a pane of glass for such an opening; a sash. A pane of glass or similar material enclosed in such a framework.
+    ```
+
+## Development
+
+ Assuming that you have [`Python`](https://www.python.org/downloads/release/python-370/) and [`pipenv`](https://docs.pipenv.org) installed, set up your environment and install the required dependencies like this instead of the `pip install random-word` defined above:
+
+```sh
+    $ https://github.com/vaibhavsingh97/random-word.git
+    $ cd random-word
+    $ pipenv install
+    ...
+    $ pipenv shell
+```
+
+ Add API Key in `random_word` directory defining API Key in `config.py`. If you don't have an API key than request your API key [here](https://developer.wordnik.com)
+
+```sh
+    API_KEY = "<API KEY>"
+```
+
+ After that, install your package locally
+
+```sh
+    $ pip install -e
+```
 
 ## Issues
 
