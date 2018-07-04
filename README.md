@@ -21,7 +21,12 @@ $ easy_install random-word
 $ pip install random-word
 ```
 
-Or just clone this repository and run:
+Or just clone this repository then add API Key, add config.py in random_word directory defining API Key :
+
+```sh
+API_KEY = "<API KEY>"
+```
+ And then run:
 
 ```sh
 $ python3 setup.py install
