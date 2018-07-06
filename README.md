@@ -12,7 +12,7 @@ If you need help after reading the below, please find me at [@vaibhavsingh97](ht
 
 If you love the package, please :star2: the repo.
 
-## Basic Setup
+## Installation
 
 You should be able to install using `easy_install` or `pip` in the usual ways:
 
@@ -21,12 +21,7 @@ $ easy_install random-word
 $ pip install random-word
 ```
 
-Or just clone this repository then add API Key, add config.py in random_word directory defining API Key :
-
-```sh
-API_KEY = "<API KEY>"
-```
- And then run:
+Or just clone this repository and run:
 
 ```sh
 $ python3 setup.py install
@@ -98,6 +93,30 @@ r.word_of_the_day()
 
     # Output: {"word": "qualtagh", "definations": [{"text": "The first person one encounters, either after leaving one\'s home or (sometimes) outside one\'s home, especially on New Year\'s Day.", "source": "wiktionary", "partOfSpeech": "noun"}, {"text": "A Christmas or New Year\'s ceremony, in the Isle of Man; one who takes part in the ceremony. See the first extract.", "source": "century", "partOfSpeech": "noun"}]}
     ```
+
+## Development
+
+ Assuming that you have [`Python`](https://www.python.org/downloads/release/python-370/) and [`pipenv`](https://docs.pipenv.org) installed, set up your environment and install the required dependencies like this instead of the `pip install random-word` defined above:
+
+```sh
+    $ https://github.com/vaibhavsingh97/random-word.git
+    $ cd random-word
+    $ pipenv install
+    ...
+    $ pipenv shell
+```
+
+ Add API Key in `random_word` directory defining API Key in `config.py`. If you don't have an API key than request your API key [here](https://developer.wordnik.com)
+
+```sh
+    API_KEY = "<API KEY>"
+```
+
+ After that, install your package locally
+
+```sh
+    $ pip install -e
+```
 
 ## Issues
 
