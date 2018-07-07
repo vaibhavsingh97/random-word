@@ -97,7 +97,6 @@ r.word_of_the_day()
 ## Development
 
  Assuming that you have [`Python`](https://www.python.org/downloads/release/python-370/) and [`pipenv`](https://docs.pipenv.org) installed, set up your environment and install the required dependencies like this instead of the `pip install random-word` defined above:
-
 ```sh
     $ https://github.com/vaibhavsingh97/random-word.git
     $ cd random-word
@@ -105,15 +104,11 @@ r.word_of_the_day()
     ...
     $ pipenv shell
 ```
-
  Add API Key in `random_word` directory defining API Key in `config.py`. If you don't have an API key than request your API key [here](https://developer.wordnik.com)
-
 ```sh
     API_KEY = "<API KEY>"
 ```
-
  After that, install your package locally
-
 ```sh
     $ pip install -e
 ```
