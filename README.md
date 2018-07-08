@@ -35,7 +35,7 @@ $ python3 setup.py install
 Or place the `random-word` folder that you downloaded somewhere where it can be accessed by your scripts.
 
 ## Basic Usage
-To add API Key, add config.py in random_word directory defining API Key
+To add API Key, add <pre>config.py</pre> in random_word directory defining API Key
 ```sh
 API_KEY = "<API KEY>"
 ```
