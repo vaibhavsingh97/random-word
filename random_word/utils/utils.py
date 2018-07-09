@@ -1,5 +1,8 @@
 import sys
-import requests
+try:
+    import requests
+except ImportError:
+    from urllib2 import Request
 
 
 def request_url(url):

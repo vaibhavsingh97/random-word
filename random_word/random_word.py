@@ -1,8 +1,12 @@
 import json
 import datetime
 from . import config
-from random_word.utils.utills import request_url, check_payload_items
-from urllib.parse import urlencode, quote_plus
+try:
+    from random_word.utils.utils import request_url, check_payload_items
+    from urllib.parse import urlencode, quote_plus
+except ImportError:
+    from utils.utils import request_url, check_payload_items
+    from urllib import urlencode, quote_plus
 
 API_KEY = config.API_KEY
 
@@ -48,7 +52,10 @@ class RandomWords(object):
         check_payload_items(payload, allParams)
         payload['api_key'] = self.__api_key
         del params['kwargs']
-        url += urlencode(payload, quote_via=quote_plus)
+        try:
+            url += urlencode(payload, quote_via=quote_plus)
+        except TypeError:
+            url += urlencode(payload)
         response = request_url(url)
         result = response.json()
         if response.status_code == 200:
@@ -94,7 +101,10 @@ class RandomWords(object):
             if payload['sortOrder'] not in value:
                 raise ValueError(
                     "Got an unexpected value to argument sortOrder")
-        url += urlencode(payload, quote_via=quote_plus)
+        try:
+            url += urlencode(payload, quote_via=quote_plus)
+        except TypeError:
+            url += urlencode(payload)
         response = request_url(url)
         result = response.json()
         word_list = []
@@ -126,7 +136,10 @@ class RandomWords(object):
                 datetime.datetime.strptime(payload['date'], '%Y-%m-%d')
             except ValueError:
                 raise ValueError("Incorrect data format, should be YYYY-MM-DD")
-        url += urlencode(payload, quote_via=quote_plus)
+        try:
+            url += urlencode(payload, quote_via=quote_plus)
+        except TypeError:
+            url += urlencode(payload)
         response = request_url(url)
         result = response.json()
         if response.status_code == 200:
