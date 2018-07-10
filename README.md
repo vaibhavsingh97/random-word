@@ -98,7 +98,7 @@ r.word_of_the_day()
 
  Assuming that you have [`Python`](https://www.python.org/) and [`pipenv`](https://docs.pipenv.org) installed, set up your environment and install the required dependencies like this instead of the `pip install random-word` defined above:
 ```sh
-$ https://github.com/vaibhavsingh97/random-word.git
+$ git clone https://github.com/vaibhavsingh97/random-word.git
 $ cd random-word
 $ pipenv install
 ...
