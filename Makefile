@@ -12,4 +12,4 @@ init:
 
 test:
 	@echo 'Run all tests'
-	pipenv run py.test tests
+	nosetests
