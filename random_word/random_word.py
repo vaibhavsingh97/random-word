@@ -18,14 +18,14 @@ class RandomWords(object):
         self.__api_key = API_KEY
         self.issue_url = "https://github.com/vaibhavsingh97/random-word/issues"
         if self.__api_key == "" or None:
-            raise "API key not found"
+            raise Exception("API key not found")
         url = "https://api.wordnik.com/v4/account.json/apiTokenStatus?api_key=" + self.__api_key
         response = request_url(url)
         if response.status_code == 200 and response.json()['valid'] == True:
             pass
         else:
-            raise "API key either expired or not working. Please raise issue at {}".format(
-                self.issue_url)
+            raise Exception("API key either expired or not working. Please raise issue at {}".format(
+                self.issue_url))
 
     def get_random_word(self, **kwargs):
         """Returns a single random word
