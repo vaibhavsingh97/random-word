@@ -1,6 +1,8 @@
-import json
 import datetime
+import json
+
 from . import config
+
 try:
     from random_word.utils.utils import request_url, check_payload_items
     from urllib.parse import urlencode, quote_plus
@@ -19,13 +21,6 @@ class RandomWords(object):
         self.issue_url = "https://github.com/vaibhavsingh97/random-word/issues"
         if self.__api_key == "" or None:
             raise Exception("API key not found")
-        url = "https://api.wordnik.com/v4/account.json/apiTokenStatus?api_key=" + self.__api_key
-        response = request_url(url)
-        if response.status_code == 200 and response.json()['valid'] == True:
-            pass
-        else:
-            raise Exception("API key either expired or not working. Please raise issue at {}".format(
-                self.issue_url))
 
     def get_random_word(self, **kwargs):
         """Returns a single random word
