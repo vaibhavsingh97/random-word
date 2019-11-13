@@ -57,7 +57,7 @@ class RandomWords(object):
             return result['word']
         else:
             raise Exception(
-                "Error occured, No result found. If you think this was a mistake than raise issue at {}".format(self.issue_url))
+                "Error occured. REASON: Expected 200, got " + str(response.status_code) + ".\nIf you think this was a mistake than raise issue at {}".format(self.issue_url))
 
     def get_random_words(self, **kwargs):
         """Returns a list of random words
@@ -109,7 +109,7 @@ class RandomWords(object):
             return word_list
         else:
             raise Exception(
-                "Error occured, No result found. If you think this was a mistake than raise issue at {}".format(self.issue_url))
+                "Error occured. REASON: Expected 200, got " + str(response.status_code) + ".\nIf you think this was a mistake than raise issue at {}".format(self.issue_url))
 
     def word_of_the_day(self, **kwargs):
         """Returns a specific WordOfTheDay
@@ -146,4 +146,4 @@ class RandomWords(object):
             })
         else:
             raise Exception(
-                "Error occured, No result found. If you think this was a mistake than raise issue at {}".format(self.issue_url))
+                "Error occured. REASON: Expected 200, got " + str(response.status_code) + ".\nIf you think this was a mistake than raise issue at {}".format(self.issue_url))
