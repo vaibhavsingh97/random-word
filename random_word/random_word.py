@@ -16,8 +16,11 @@ API_KEY = config.API_KEY
 class RandomWords(object):
     """ Class for genrating random words"""
 
-    def __init__(self):
-        self.__api_key = API_KEY
+    def __init__(self, api_key=None):
+        if api_key:
+            self.__api_key = api_key
+        else:
+            self.__api_key = API_KEY
         self.issue_url = "https://github.com/vaibhavsingh97/random-word/issues"
         if self.__api_key == "" or None:
             raise Exception("API key not found")
