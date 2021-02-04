@@ -3,7 +3,7 @@ from random_word import RandomWords
 
 
 class TestRandomWord(TestCase):
-	# using single instance for all tests
+    # using single instance for all tests
     r = RandomWords()
 
     def test_random_word(self):
@@ -16,5 +16,5 @@ class TestRandomWord(TestCase):
         return self.r.word_of_the_day()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -1,4 +1,5 @@
 import sys
+
 try:
     import requests
 except ImportError:
@@ -20,4 +21,6 @@ def check_payload_items(payload, allParams):
         for (key, val) in payload.items():
             if key not in allParams:
                 raise TypeError(
-                    "Got an unexpected keyword argument '%s' to method get_random_word" % key)
+                    "Got an unexpected keyword argument '%s' to method get_random_word"
+                    % key
+                )

@@ -43,13 +43,22 @@ class RandomWords(object):
         """
 
         url = "https://api.wordnik.com/v4/words.json/randomWord?"
-        allParams = ['hasDictionaryDef', 'includePartOfSpeech', 'excludePartOfSpeech', 'minCorpusCount',
-                     'maxCorpusCount', 'minDictionaryCount', 'maxDictionaryCount', 'minLength', 'maxLength']
+        allParams = [
+            "hasDictionaryDef",
+            "includePartOfSpeech",
+            "excludePartOfSpeech",
+            "minCorpusCount",
+            "maxCorpusCount",
+            "minDictionaryCount",
+            "maxDictionaryCount",
+            "minLength",
+            "maxLength",
+        ]
         params = locals()
-        payload = params['kwargs']
+        payload = params["kwargs"]
         check_payload_items(payload, allParams)
-        payload['api_key'] = self.__api_key
-        del params['kwargs']
+        payload["api_key"] = self.__api_key
+        del params["kwargs"]
         try:
             url += urlencode(payload, quote_via=quote_plus)
         except TypeError:
@@ -57,10 +66,13 @@ class RandomWords(object):
         response = request_url(url)
         result = response.json()
         if response.status_code == 200:
-            return result['word']
+            return result["word"]
         else:
             raise Exception(
-                "Error occured, No result found. If you think this was a mistake than raise issue at {}".format(self.issue_url))
+                "Error occured, No result found. If you think this was a mistake than raise issue at {}".format(
+                    self.issue_url
+                )
+            )
 
     def get_random_words(self, **kwargs):
         """Returns a list of random words
@@ -83,22 +95,33 @@ class RandomWords(object):
         """
 
         url = "https://api.wordnik.com/v4/words.json/randomWords?"
-        allParams = ['hasDictionaryDef', 'includePartOfSpeech', 'excludePartOfSpeech', 'minCorpusCount', 'maxCorpusCount',
-                     'minDictionaryCount', 'maxDictionaryCount', 'minLength', 'maxLength', 'sortBy', 'sortOrder', 'limit']
+        allParams = [
+            "hasDictionaryDef",
+            "includePartOfSpeech",
+            "excludePartOfSpeech",
+            "minCorpusCount",
+            "maxCorpusCount",
+            "minDictionaryCount",
+            "maxDictionaryCount",
+            "minLength",
+            "maxLength",
+            "sortBy",
+            "sortOrder",
+            "limit",
+        ]
         params = locals()
-        payload = params['kwargs']
+        payload = params["kwargs"]
         check_payload_items(payload, allParams)
-        payload['api_key'] = self.__api_key
-        del params['kwargs']
-        if 'sortBy' in payload:
-            value = ['alpha', 'count']
-            if payload['sortBy'] not in value:
+        payload["api_key"] = self.__api_key
+        del params["kwargs"]
+        if "sortBy" in payload:
+            value = ["alpha", "count"]
+            if payload["sortBy"] not in value:
                 raise ValueError("Got an unexpected value to argument sortBy")
-        if 'sortOrder' in payload:
-            value = ['asc', 'desc']
-            if payload['sortOrder'] not in value:
-                raise ValueError(
-                    "Got an unexpected value to argument sortOrder")
+        if "sortOrder" in payload:
+            value = ["asc", "desc"]
+            if payload["sortOrder"] not in value:
+                raise ValueError("Got an unexpected value to argument sortOrder")
         try:
             url += urlencode(payload, quote_via=quote_plus)
         except TypeError:
@@ -108,11 +131,14 @@ class RandomWords(object):
         word_list = []
         if response.status_code == 200:
             for word in result:
-                word_list.append(word['word'])
+                word_list.append(word["word"])
             return word_list
         else:
             raise Exception(
-                "Error occured, No result found. If you think this was a mistake than raise issue at {}".format(self.issue_url))
+                "Error occured, No result found. If you think this was a mistake than raise issue at {}".format(
+                    self.issue_url
+                )
+            )
 
     def word_of_the_day(self, **kwargs):
         """Returns a specific WordOfTheDay
@@ -123,15 +149,15 @@ class RandomWords(object):
         """
 
         url = "https://api.wordnik.com/v4/words.json/wordOfTheDay?"
-        allParams = ['date']
+        allParams = ["date"]
         params = locals()
-        payload = params['kwargs']
+        payload = params["kwargs"]
         check_payload_items(payload, allParams)
-        payload['api_key'] = self.__api_key
-        del params['kwargs']
-        if 'date' in payload:
+        payload["api_key"] = self.__api_key
+        del params["kwargs"]
+        if "date" in payload:
             try:
-                datetime.datetime.strptime(payload['date'], '%Y-%m-%d')
+                datetime.datetime.strptime(payload["date"], "%Y-%m-%d")
             except ValueError:
                 raise ValueError("Incorrect data format, should be YYYY-MM-DD")
         try:
@@ -141,12 +167,12 @@ class RandomWords(object):
         response = request_url(url)
         result = response.json()
         if response.status_code == 200:
-            word = result['word']
-            definitions = result['definitions']
-            return json.dumps({
-                'word': word,
-                'definations': definitions
-            })
+            word = result["word"]
+            definitions = result["definitions"]
+            return json.dumps({"word": word, "definations": definitions})
         else:
             raise Exception(
-                "Error occured, No result found. If you think this was a mistake than raise issue at {}".format(self.issue_url))
+                "Error occured, No result found. If you think this was a mistake than raise issue at {}".format(
+                    self.issue_url
+                )
+            )
