@@ -1,12 +1,16 @@
 import datetime
 import json
-
-from . import config
+import os
 
 from random_word.utils.utils import request_url, check_payload_items
 from urllib.parse import urlencode, quote_plus
 
-API_KEY = config.API_KEY
+
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+CONFIG_PATH = os.path.join(ROOT_DIR, "config.yml")
+
+API_KEYS_LIST = get_api_keys(CONFIG_PATH)
+API_KEY = get_random_api_key(API_KEYS_LIST["API_KEY"])
 
 
 class RandomWords(object):

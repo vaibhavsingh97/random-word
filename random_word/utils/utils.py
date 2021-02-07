@@ -1,4 +1,5 @@
 import sys
+import yaml
 
 import requests
 
@@ -20,3 +21,17 @@ def check_payload_items(payload, allParams):
                     "Got an unexpected keyword argument '%s' to method get_random_word"
                     % key
                 )
+
+
+def get_api_keys(filepath):
+    yaml_config = ""
+    with open(filepath, "r") as stream:
+        try:
+            yaml_config = yaml.safe_load(stream)
+        except yaml.YAMLError as exc:
+            print("Error in configuration file:", exc)
+    return yaml_config
+
+
+def get_random_api_key(api_key_arr):
+    return secrets.choice(api_key_arr)

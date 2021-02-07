@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 requests = "*"
 nose = "*"
+pyyaml = "*"
 
 [dev-packages]
 "autopep8" = "*"

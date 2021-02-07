@@ -105,3 +105,4 @@ venv.bak/
 .vscode
 config.py
 .DS_Store
+config.yml
