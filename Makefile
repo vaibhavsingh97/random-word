@@ -14,6 +14,15 @@ test:
 	@echo 'Run all tests'
 	nosetests
 
+build:
+	python setup.py sdist bdist_wheel
+
+test_upload:
+	python -m twine upload -r testpypi dist/*
+
+upload:
+	python -m twine upload dist/*
+
 clean:
 	find . -name '*.pyc' -exec rm -f {} +
 	find . -name '*.pyo' -exec rm -f {} +
