@@ -1,7 +1,7 @@
 # random-word
 
 [![Build Status](https://travis-ci.org/vaibhavsingh97/random-word.svg?branch=master)](https://travis-ci.org/vaibhavsingh97/random-word)
-[![PyPI version](https://badge.fury.io/py/random-word.svg)](https://badge.fury.io/py/random-word)
+[![PyPI version](https://badge.fury.io/py/Random-Word.svg)](https://badge.fury.io/py/Random-Word)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg)](https://pypi.org/project/random-word/)
 [![PyPI - Status](https://img.shields.io/pypi/status/Django.svg)](https://pypi.org/project/random-word/)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d6ff0d51be474f1bb8b031c2c418b541)](https://www.codacy.com/app/vaibhavsingh97/random-word?utm_source=github.com&utm_medium=referral&utm_content=vaibhavsingh97/random-word&utm_campaign=Badge_Grade)
