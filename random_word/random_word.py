@@ -2,22 +2,8 @@ import datetime
 import json
 import os
 
-try:
-    from random_word.utils.utils import (
-        request_url,
-        check_payload_items,
-        get_api_keys,
-        get_random_api_key,
-    )
-    from urllib.parse import urlencode, quote_plus
-except ImportError:
-    from utils.utils import (
-        request_url,
-        check_payload_items,
-        get_api_keys,
-        get_random_api_key,
-    )
-    from urllib import urlencode, quote_plus
+from random_word.utils.utils import request_url, check_payload_items
+from urllib.parse import urlencode, quote_plus
 
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -36,7 +22,7 @@ class RandomWords(object):
         else:
             self.__api_key = API_KEY
         self.issue_url = "https://github.com/vaibhavsingh97/random-word/issues"
-        if self.__api_key == "" or None:
+        if self.__api_key == "" or self.__api_key == None:
             raise Exception("API key not found")
 
     def get_random_word(self, **kwargs):

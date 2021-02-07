@@ -1,11 +1,7 @@
 import sys
 import yaml
 
-try:
-    import requests
-    import secrets
-except ImportError:
-    from urllib2 import Request
+import requests
 
 
 def request_url(url):
@@ -14,7 +10,6 @@ def request_url(url):
     except Exception as e:
         e = sys.exc_info()[0]
         raise e
-        sys.exit(0)
     return response
 
 
