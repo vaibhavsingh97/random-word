@@ -3,12 +3,8 @@ import json
 
 from . import config
 
-try:
-    from random_word.utils.utils import request_url, check_payload_items
-    from urllib.parse import urlencode, quote_plus
-except ImportError:
-    from utils.utils import request_url, check_payload_items
-    from urllib import urlencode, quote_plus
+from random_word.utils.utils import request_url, check_payload_items
+from urllib.parse import urlencode, quote_plus
 
 API_KEY = config.API_KEY
 
@@ -22,7 +18,7 @@ class RandomWords(object):
         else:
             self.__api_key = API_KEY
         self.issue_url = "https://github.com/vaibhavsingh97/random-word/issues"
-        if self.__api_key == "" or None:
+        if self.__api_key == "" or self.__api_key == None:
             raise Exception("API key not found")
 
     def get_random_word(self, **kwargs):
