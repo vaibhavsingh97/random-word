@@ -2,7 +2,12 @@ import datetime
 import json
 import os
 
-from random_word.utils.utils import request_url, check_payload_items
+from random_word.utils.utils import (
+    request_url,
+    check_payload_items,
+    get_api_keys,
+    get_api_keys,
+)
 from urllib.parse import urlencode, quote_plus
 
 
@@ -10,7 +15,7 @@ ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 CONFIG_PATH = os.path.join(ROOT_DIR, "config.yml")
 
 API_KEYS_LIST = get_api_keys(CONFIG_PATH)
-API_KEY = get_random_api_key(API_KEYS_LIST["API_KEY"])
+API_KEY = get_api_keys(API_KEYS_LIST["API_KEY"])
 
 
 class RandomWords(object):
