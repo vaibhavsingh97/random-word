@@ -1,13 +1,13 @@
 language: python
 sudo: false
 python:
-- "3.5"
 - "3.6"
-- "3.7-dev"
+- "3.7"
+- "3.8"
+- "3.9-dev"
 install:
 - make init
 script:
 - python random_word/tests/test_word.py
 before_install:
-- openssl aes-256-cbc -K $encrypted_619c3c835fae_key -iv $encrypted_619c3c835fae_iv
-  -in config.py.enc -out random_word/config.py -d
+- openssl aes-256-cbc -K $encrypted_8ab1e779b1d5_key -iv $encrypted_8ab1e779b1d5_iv -in config.yml.enc -out random_word/config.yml -d
