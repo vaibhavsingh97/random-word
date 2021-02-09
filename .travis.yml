@@ -11,3 +11,4 @@ script:
 - python random_word/tests/test_word.py
 before_install:
 - openssl aes-256-cbc -K $encrypted_8ab1e779b1d5_key -iv $encrypted_8ab1e779b1d5_iv -in config.yml.enc -out random_word/config.yml -d
+- ls random_word
