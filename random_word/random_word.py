@@ -17,8 +17,8 @@ from urllib.parse import urlencode, quote_plus
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 CONFIG_PATH = os.path.join(ROOT_DIR, "config.yml")
 
-API_KEYS_LIST = get_api_keys(CONFIG_PATH)
-API_KEY = get_random_api_key(API_KEYS_LIST["API_KEY"])
+API_KEYS_LIST = get_api_keys(CONFIG_PATH)["API_KEY"]
+API_KEY = get_random_api_key(API_KEYS_LIST)
 
 
 class RandomWords(object):
@@ -33,7 +33,7 @@ class RandomWords(object):
         if self.__api_key == "" or self.__api_key == None:
             raise Exception("API key not found")
 
-    @Retry(2)
+    @Retry(3)
     def get_random_word(self, **kwargs):
         """Returns a single random word
 
@@ -88,7 +88,7 @@ class RandomWords(object):
                     API_KEYS_LIST.remove(self.__api_key)
                 self.__api_key = get_random_api_key(API_KEYS_LIST)
 
-    @Retry(2)
+    @Retry(3)
     def get_random_words(self, **kwargs):
         """Returns a list of random words
 
@@ -160,6 +160,7 @@ class RandomWords(object):
                     API_KEYS_LIST.remove(self.__api_key)
                 self.__api_key = get_random_api_key(API_KEYS_LIST)
 
+    @Retry(3)
     def word_of_the_day(self, **kwargs):
         """Returns a specific WordOfTheDay
         Args:
