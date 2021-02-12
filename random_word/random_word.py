@@ -136,7 +136,8 @@ class RandomWords(object):
         if "sortOrder" in payload:
             value = ["asc", "desc"]
             if payload["sortOrder"] not in value:
-                raise ValueError("Got an unexpected value to argument sortOrder")
+                raise ValueError(
+                    "Got an unexpected value to argument sortOrder")
         try:
             url += urlencode(payload, quote_via=quote_plus)
         except TypeError:

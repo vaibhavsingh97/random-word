@@ -7,6 +7,7 @@ help:
 init:
 	@echo 'Install python dependencies'
 	pip install pipenv
+	pip install autopep8
 	pipenv install
 	python setup.py install
 

@@ -1,21 +1,41 @@
-name: Workflows with large secrets
+name: Random Word Build
 
 on: push
 
 jobs:
-  my-job:
+  build:
     name: My Job
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.6', '3.7', '3.8', '3.9.1']
     steps:
       - uses: actions/checkout@v2
       - name: Decrypt large secret
         run: ./.github/scripts/decrypt_secrets.sh
         env:
           SECRET_PASSPHRASE: ${{ secrets.SECRET_PASSPHRASE }}
-      # This command is just an example to show your secret being printed
-      # Ensure you remove any print statements of your secrets. GitHub does
-      # not hide secrets that use this workaround.
+
       - name: Copying Config.yml to random_word folder
         run: cp $HOME/secrets/config.yml random_word/
-      - name: Print DIrectory Structure of random_word
+
+      - name: Print Directory Structure of random_word
         run: ls -la random_word
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+          architecture: x64
+
+      - name: Install packages
+        run: |
+          make init
+      
+      - name: Python Lint
+        run: |
+          make lint
+
+      - name: Run tests
+        run: |
+          make test
