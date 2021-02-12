@@ -1,6 +1,8 @@
 name: Build
 
 on:
+  schedule:
+    - cron: "0 12 * * SUN"
   pull_request:
     branches:
      -  '*'
