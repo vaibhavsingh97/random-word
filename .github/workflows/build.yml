@@ -32,6 +32,7 @@ jobs:
         run: |
             pip install pipenv
             pip install autopep8
+            pip install nose
             pipenv install
             pipenv run python setup.py install
       
