@@ -9,6 +9,7 @@ init:
 	pip install pipenv
 	pip install autopep8
 	pipenv install
+	pipenv shell
 	python setup.py install
 
 test:
