@@ -1,14 +1,22 @@
-name: Random Word Build
+name: Random Word
 
-on: push
+on:
+  pull_request:
+    branches:
+     -  '*'
+  push:
+    branches:
+      - "*"
+
 
 jobs:
   build:
-    name: My Job
-    runs-on: ubuntu-latest
+    name: Build
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         python-version: ['3.6', '3.7', '3.8', '3.9.1']
+        os: [windows-latest, ubuntu-latest, macos-latest]
     steps:
       - uses: actions/checkout@v2
       - name: Decrypt large secret
