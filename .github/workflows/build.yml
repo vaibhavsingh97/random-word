@@ -42,4 +42,4 @@ jobs:
 
       - name: Run tests
         run: |
-          make test
+          pipenv run nosetests
