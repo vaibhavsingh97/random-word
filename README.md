@@ -1,6 +1,6 @@
 # random-word
 
-[![Build Status](https://travis-ci.org/vaibhavsingh97/random-word.svg?branch=master)](https://travis-ci.org/vaibhavsingh97/random-word)
+![Build](https://github.com/vaibhavsingh97/random-word/workflows/Build/badge.svg)
 [![PyPI version](https://badge.fury.io/py/Random-Word.svg)](https://badge.fury.io/py/Random-Word)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg)](https://pypi.org/project/random-word/)
 [![PyPI - Status](https://img.shields.io/pypi/status/Django.svg)](https://pypi.org/project/random-word/)
