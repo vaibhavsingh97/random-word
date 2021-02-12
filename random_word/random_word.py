@@ -30,7 +30,7 @@ class RandomWords(object):
         else:
             self.__api_key = API_KEY
         self.issue_url = "https://github.com/vaibhavsingh97/random-word/issues"
-        if self.__api_key == "" or self.__api_key == None:
+        if self.__api_key == "" or self.__api_key is None:
             raise Exception("API key not found")
 
     @Retry(3)
