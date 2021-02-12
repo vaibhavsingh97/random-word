@@ -30,7 +30,10 @@ jobs:
 
       - name: Install packages
         run: |
-          make init
+            pip install pipenv
+            pip install autopep8
+            pipenv install
+            pipenv run python setup.py install
       
       - name: Python Lint
         run: |
