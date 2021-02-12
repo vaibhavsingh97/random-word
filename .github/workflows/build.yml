@@ -15,5 +15,7 @@ jobs:
       # This command is just an example to show your secret being printed
       # Ensure you remove any print statements of your secrets. GitHub does
       # not hide secrets that use this workaround.
-      - name: Test printing your secret (Remove this step in production)
-        run: cat $HOME/secrets/config.yml
+      - name: Copying Config.yml to random_word folder
+        run: cp $HOME/secrets/config.yml random_word/
+      - name: Print DIrectory Structure of random_word
+        run: ls -la random_word
