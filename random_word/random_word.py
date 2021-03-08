@@ -47,9 +47,16 @@ class RandomWords(object):
             maxDictionaryCount, int: Maximum dictionary count (optional)
             minLength, int: Minimum word length (optional)
             maxLength, int: Maximum word length (optional)
-
+            length, int: Exact word length (optional)
         Returns: String, Random words
         """
+        params = locals()
+        try:
+            if params["kwargs"]["length"]:
+                params["kwargs"]["minLength"] = params["kwargs"]["maxLength"] = params["kwargs"]["length"]
+                del params["kwargs"]["length"]
+        except:
+            pass
 
         url = "https://api.wordnik.com/v4/words.json/randomWord?"
         allParams = [
@@ -61,9 +68,9 @@ class RandomWords(object):
             "minDictionaryCount",
             "maxDictionaryCount",
             "minLength",
-            "maxLength",
+            "maxLength"
         ]
-        params = locals()
+
         payload = params["kwargs"]
         check_payload_items(payload, allParams)
         payload["api_key"] = self.__api_key
@@ -102,12 +109,20 @@ class RandomWords(object):
             maxDictionaryCount, int: Maximum dictionary count (optional)
             minLength, int: Minimum word length (optional)
             maxLength, int: Maximum word length (optional)
+            length, int: Exact word length (optional)
             sortBy, str: Attribute to sort by (optional)
             sortOrder, str: Sort direction (optional)
             limit, int: Maximum number of results to return (optional)
 
         Returns: list[Random Words]
         """
+        params = locals()
+        try:
+            if params["kwargs"]["length"]:
+                params["kwargs"]["minLength"] = params["kwargs"]["maxLength"] = params["kwargs"]["length"]
+                del params["kwargs"]["length"]
+        except:
+            pass
 
         url = "https://api.wordnik.com/v4/words.json/randomWords?"
         allParams = [
@@ -124,7 +139,7 @@ class RandomWords(object):
             "sortOrder",
             "limit",
         ]
-        params = locals()
+
         payload = params["kwargs"]
         check_payload_items(payload, allParams)
         payload["api_key"] = self.__api_key

@@ -44,9 +44,16 @@ r.get_random_words()
 r.word_of_the_day()
 ```
 
-## Advance Usage
+## Advanced Usage
 
-1.  To generate single random word we can use these optional parameters
+1.  To use a personal API key, we can pass the optional parameter api_key when creating the RandomWords object
+
+    ```python
+    r = RandomWords(api_key="YOUR_PERSONAL_API_KEY_HERE")
+
+    ```
+
+2.  To generate single random word we can use these optional parameters
 
     - `hasDictionaryDef (string)` - Only return words with dictionary definitions (optional)
     - `includePartOfSpeech (string)` - CSV part-of-speech values to include (optional)
@@ -57,6 +64,7 @@ r.word_of_the_day()
     - `maxDictionaryCount (integer)` - Maximum dictionary count (optional)
     - `minLength (integer)` - Minimum word length (optional)
     - `maxLength (integer)` - Maximum word length (optional)
+    - `length (integer)` - Exact word length (optional)
 
     ```python
     r.get_random_word(hasDictionaryDef="true", includePartOfSpeech="noun,verb", minCorpusCount=1, maxCorpusCount=10, minDictionaryCount=1, maxDictionaryCount=10, minLength=5, maxLength=10)
@@ -64,7 +72,7 @@ r.word_of_the_day()
     # Output: pediophobia
     ```
 
-2.  To generate list of random word we can use these optional parameters
+3.  To generate list of random word we can use these optional parameters
 
     - `hasDictionaryDef (string)` - Only return words with dictionary definitions (optional)
     - `includePartOfSpeech (string)` - CSV part-of-speech values to include (optional)
@@ -75,6 +83,7 @@ r.word_of_the_day()
     - `maxDictionaryCount (integer)` - Maximum dictionary count (optional)
     - `minLength (integer)` - Minimum word length (optional)
     - `maxLength (integer)` - Maximum word length (optional)
+    - `length (integer)` - Exact word length (optional)
     - `sortBy (string)` - Attribute to sort by `alpha` or `count` (optional)
     - `sortOrder (string)` - Sort direction by `asc` or `desc` (optional)
     - `limit (integer)` - Maximum number of results to return (optional)
@@ -85,7 +94,7 @@ r.word_of_the_day()
     # Output: ['ambivert', 'calcspar', 'deaness', 'entrete', 'gades', 'monkeydom', 'outclimbed', 'outdared', 'pistoleers', 'redbugs', 'snake-line', 'subrules', 'subtrends', 'torenia', 'unhides']
     ```
 
-3.  To get word of the day we can use these optional parameters
+4.  To get word of the day we can use these optional parameters
 
     - `date (string)` - Fetches by date in yyyy-MM-dd (optional)
 
