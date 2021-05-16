@@ -18,6 +18,8 @@ jobs:
       matrix:
         python-version: ['3.6', '3.7', '3.8', '3.9.1']
         os: [ubuntu-latest, macos-latest]
+    environment:
+      name: random word ci
     steps:
       - uses: actions/checkout@v2
       - name: Decrypt large secret
