@@ -191,7 +191,7 @@ class RandomWords(object):
         if response.status_code == 200:
             word = result["word"]
             definitions = result["definitions"]
-            return json.dumps({"word": word, "definations": definitions})
+            return json.dumps({"word": word, "definitions": definitions})
         else:
             if len(API_KEYS_LIST) == 0:
                 raise Exception(
