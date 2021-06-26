@@ -34,7 +34,7 @@ setuptools.setup(
     ),
     test_suite="nose.collector",
     tests_require=["nose"],
-    install_requires=["requests", "nose"],
+    install_requires=["requests", "nose", "pyyaml"],
     include_package_data=True,
     zip_safe=False,
 )
