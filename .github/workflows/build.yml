@@ -3,15 +3,11 @@ name: Build
 on:
   schedule:
     - cron: "0 12 * * SUN"
-  pull_request:
-    branches:
-     -  '*'
-  push:
-    branches:
-      - "*"
+  pull_request_target:
+    branches: [ master ]
 
 
-jobs:
+jobs:    
   build:
     runs-on: ${{ matrix.os }}
     strategy:
