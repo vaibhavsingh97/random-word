@@ -28,7 +28,7 @@ test:
 	pytest
 
 build:
-	python setup.py sdist bdist_wheel
+	python3 -m build
 
 test_upload:
 	python -m twine upload -r testpypi dist/*
@@ -42,9 +42,10 @@ clean:
 	find . -type d -name __pycache__ -exec rm -r {} \+
 	rm -rf build/
 	rm -rf dist/
-	rm -rf *.egg-info
+	find . -name '*.egg-info' -exec rm -rf {} +
 	rm -rf .tox
 	rm -rf .pytest_cache .coverage
+	rm -rf .eggs
 
 lint:
 	autopep8 random_word --recursive --in-place --pep8-passes 2000 --verbose

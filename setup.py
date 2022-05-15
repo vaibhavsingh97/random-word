@@ -5,9 +5,9 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name=random_word.__name__,
-    version=random_word.__version__,
-    author=random_word.__author__,
+    name="Random Word",
+    version="1.0.8",
+    author="Vaibhav Singh <hi@vaibhavsingh97.com>",
     author_email="hi@vaibhavsingh97.com",
     description="This is a simple python package to generate random english words",
     long_description=long_description,
@@ -15,12 +15,13 @@ setuptools.setup(
     license="MIT",
     keywords="package random words word of the day random word generator",
     url="https://github.com/vaibhavsingh97/random-word",
-    packages=setuptools.find_packages(),
-    classifiers=(
+    package_dir={"": "random_word"},
+    packages=setuptools.find_packages(where="random_word"),
+    python_requires='>=3',
+    classifiers=[
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.1",
-        "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.2",
         "Programming Language :: Python :: 3.3",
         "Programming Language :: Python :: 3.4",
@@ -29,9 +30,10 @@ setuptools.setup(
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
-    ),
+    ],
     setup_requires=['pytest-runner'],
     tests_require=["pytest"],
     install_requires=["requests", "pytest", "pyyaml"],
