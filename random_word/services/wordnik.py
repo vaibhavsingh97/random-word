@@ -23,7 +23,6 @@ API_KEY = get_random_api_key(API_KEYS_LIST)
 
 
 class Wordnik(object):
-
     """Class for Wordnik API Service"""
 
     def __init__(self, api_key=None):
@@ -53,7 +52,6 @@ class Wordnik(object):
 
         Returns: String, Random words
         """
-
         url = "https://api.wordnik.com/v4/words.json/randomWord?"
         allParams = [
             "hasDictionaryDef",
@@ -112,7 +110,6 @@ class Wordnik(object):
 
         Returns: list[Random Words]
         """
-
         url = "https://api.wordnik.com/v4/words.json/randomWords?"
         allParams = [
             "hasDictionaryDef",
@@ -173,7 +170,6 @@ class Wordnik(object):
 
         Returns: Json(WordOfTheDay)
         """
-
         url = "https://api.wordnik.com/v4/words.json/wordOfTheDay?"
         allParams = ["date"]
         params = locals()
