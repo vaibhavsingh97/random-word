@@ -4,7 +4,6 @@
 [![PyPI version](https://badge.fury.io/py/Random-Word.svg)](https://badge.fury.io/py/Random-Word)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg)](https://pypi.org/project/random-word/)
 [![PyPI - Status](https://img.shields.io/pypi/status/Django.svg)](https://pypi.org/project/random-word/)
-<!-- [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d6ff0d51be474f1bb8b031c2c418b541)](https://www.codacy.com/app/vaibhavsingh97/random-word?utm_source=github.com&utm_medium=referral&utm_content=vaibhavsingh97/random-word&utm_campaign=Badge_Grade) -->
 [![Downloads](https://pepy.tech/badge/random-word)](https://pepy.tech/project/random-word)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://vaibhavsingh97.mit-license.org/)
 
