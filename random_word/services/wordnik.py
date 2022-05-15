@@ -23,7 +23,8 @@ API_KEY = get_random_api_key(API_KEYS_LIST)
 
 
 class Wordnik(object):
-    """Class for genrating random words"""
+
+    """Class for Wordnik API Service"""
 
     def __init__(self, api_key=None):
         if api_key:
@@ -36,6 +37,7 @@ class Wordnik(object):
 
     @Retry(3)
     def get_random_word(self, **kwargs):
+
         """Returns a single random word
 
         Args:
@@ -91,6 +93,7 @@ class Wordnik(object):
 
     @Retry(3)
     def get_random_words(self, **kwargs):
+
         """Returns a list of random words
 
         Args:
@@ -163,6 +166,7 @@ class Wordnik(object):
 
     @Retry(3)
     def word_of_the_day(self, **kwargs):
+
         """Returns a specific WordOfTheDay
         Args:
             date, str: Fetches by date in yyyy-MM-dd (optional)

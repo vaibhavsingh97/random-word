@@ -14,7 +14,7 @@ init:
 
 test:
 	@echo 'Run all tests'
-	nosetests
+	pytest
 
 build:
 	python setup.py sdist bdist_wheel

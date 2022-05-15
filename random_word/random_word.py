@@ -2,6 +2,7 @@ from .services.wordnik import Wordnik
 
 
 class RandomWords(object):
+
     """Class for generating random words"""
 
     def __init__(self, api_key=None):

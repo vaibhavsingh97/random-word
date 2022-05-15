@@ -39,7 +39,7 @@ jobs:
         run: |
             pip install pipenv
             pip install autopep8
-            pip install nose
+            pip install pytest
             pipenv install
             pipenv run python setup.py install
       
@@ -49,4 +49,4 @@ jobs:
 
       - name: Run tests
         run: |
-          pipenv run nosetests
+          pipenv run pytest
