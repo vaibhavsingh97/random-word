@@ -12,7 +12,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        python-version: ['3.6', '3.7', '3.8', '3.9.1']
+        python-version: ['3.6', '3.9', '3.10']
         os: [ubuntu-latest, macos-latest]
     environment:
       name: random word ci
@@ -39,7 +39,7 @@ jobs:
         run: |
             pip install pipenv
             pip install autopep8
-            pip install nose
+            pip install pytest
             pipenv install
             pipenv run python setup.py install
       
@@ -49,4 +49,4 @@ jobs:
 
       - name: Run tests
         run: |
-          pipenv run nosetests
+          pipenv run pytest

@@ -4,8 +4,8 @@
 [![PyPI version](https://badge.fury.io/py/Random-Word.svg)](https://badge.fury.io/py/Random-Word)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg)](https://pypi.org/project/random-word/)
 [![PyPI - Status](https://img.shields.io/pypi/status/Django.svg)](https://pypi.org/project/random-word/)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d6ff0d51be474f1bb8b031c2c418b541)](https://www.codacy.com/app/vaibhavsingh97/random-word?utm_source=github.com&utm_medium=referral&utm_content=vaibhavsingh97/random-word&utm_campaign=Badge_Grade)
-[![Downloads](http://pepy.tech/badge/random-word)](http://pepy.tech/project/random-word)
+<!-- [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d6ff0d51be474f1bb8b031c2c418b541)](https://www.codacy.com/app/vaibhavsingh97/random-word?utm_source=github.com&utm_medium=referral&utm_content=vaibhavsingh97/random-word&utm_campaign=Badge_Grade) -->
+[![Downloads](https://pepy.tech/badge/random-word)](https://pepy.tech/project/random-word)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://vaibhavsingh97.mit-license.org/)
 
 This is a simple python package to generate random english words.
@@ -33,6 +33,7 @@ Or place the `random-word` folder that you downloaded somewhere where it can be 
 ## Basic Usage
 
 ```python
+# ⚠️ This will be soon deprecated in future versions of this package
 from random_word import RandomWords
 r = RandomWords()
 
@@ -42,6 +43,26 @@ r.get_random_word()
 r.get_random_words()
 # Return Word of the day
 r.word_of_the_day()
+```
+
+User can specify their own [api key][wornikWebsiteLink]
+```python
+r = RandomWords(api_key="<your api key>") 
+```
+
+In a future version, we will have different services similar to Wordnik that will provide random words.
+
+```python
+from random_word import Wordnik
+wordnik_service = = Wordnik()
+
+# Return a single random word
+wordnik_service.get_random_word()
+# Return list of Random words
+wordnik_service.get_random_words()
+# Return Word of the day
+wordnik_service.word_of_the_day()
+
 ```
 
 ## Advance Usage
@@ -102,18 +123,16 @@ Assuming that you have [`Python`](https://www.python.org/) and [`pipenv`](https:
 ```sh
 $ git clone https://github.com/vaibhavsingh97/random-word.git
 $ cd random-word
-$ pipenv install
-...
-$ pipenv shell
+$ make init
 ```
 
-Add API Key in `random_word` directory defining API Key in `config.py`. If you don't have an API key than request your API key [here](https://developer.wordnik.com)
+Add API Key in `random_word` directory defining API Key in `config.yml`. If you don't have an API key than request your API key [here][wornikWebsiteLink]
 
 ```sh
 API_KEY = "<API KEY>"
 ```
 
-After that, install your package locally
+To check your desired changes you can install your package locally
 
 ```sh
 $ pip install -e .
@@ -128,3 +147,5 @@ You can report the bugs at the [issue tracker](https://github.com/vaibhavsingh97
 Built with ♥ by Vaibhav Singh([@vaibhavsingh97](https://github.com/vaibhavsingh97)) under [MIT License](https://vaibhavsingh97.mit-license.org/)
 
 You can find a copy of the License at <https://vaibhavsingh97.mit-license.org/>
+
+[wornikWebsiteLink]:https://developer.wordnik.com

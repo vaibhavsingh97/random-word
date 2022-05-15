@@ -32,9 +32,9 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ),
-    test_suite="nose.collector",
-    tests_require=["nose"],
-    install_requires=["requests", "nose", "pyyaml"],
+    setup_requires=['pytest-runner'],
+    tests_require=["pytest"],
+    install_requires=["requests", "pytest", "pyyaml"],
     include_package_data=True,
     zip_safe=False,
 )
