@@ -3,6 +3,17 @@ help:
 	@echo '        install pipenv and all project dependencies'
 	@echo '    test'
 	@echo '        run all tests'
+	@echo '    build'
+	@echo '        package for distributing in pypi repository'
+	@echo '    test_upload'
+	@echo '        package for distributing in test pypi repository'
+	@echo '    upload'
+	@echo '        upload package to pypi (You will require credentials)'
+	@echo '    clean'
+	@echo '        clean temporary files created during build'
+	@echo '    lint'
+	@echo '        lint all the python files'
+
 
 init:
 	@echo 'Install python dependencies'
