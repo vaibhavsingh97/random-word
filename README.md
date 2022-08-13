@@ -53,7 +53,7 @@ In a future version, we will have different services similar to Wordnik that wil
 
 ```python
 from random_word import Wordnik
-wordnik_service = = Wordnik()
+wordnik_service = Wordnik()
 
 # Return a single random word
 wordnik_service.get_random_word()

@@ -1,4 +1,4 @@
-from .services.wordnik import Wordnik
+from random_word.services.wordnik import Wordnik
 
 
 class RandomWords(object):

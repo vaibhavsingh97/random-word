@@ -1,6 +1,6 @@
 import datetime
 import json
-from os.path import join, abspath, curdir
+from os.path import join, abspath, dirname
 
 
 from random_word.utils.utils import (
@@ -14,8 +14,7 @@ from random_word.utils.retry_generator import Retry
 
 from urllib.parse import urlencode, quote_plus
 
-
-ROOT_DIR = join(abspath(curdir), "random_word")
+ROOT_DIR = dirname(dirname(abspath(__file__)))
 CONFIG_PATH = join(ROOT_DIR, "config.yml")
 
 API_KEYS_LIST = get_api_keys(CONFIG_PATH)["API_KEY"]

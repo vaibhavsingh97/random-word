@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="Random Word",
-    version="1.0.8",
+    version="1.0.10",
     author="Vaibhav Singh <hi@vaibhavsingh97.com>",
     author_email="hi@vaibhavsingh97.com",
     description="This is a simple python package to generate random english words",
@@ -15,8 +15,6 @@ setuptools.setup(
     license="MIT",
     keywords="package random words word of the day random word generator",
     url="https://github.com/vaibhavsingh97/random-word",
-    package_dir={"": "random_word"},
-    packages=setuptools.find_packages(where="random_word"),
     python_requires='>=3',
     classifiers=[
         "Programming Language :: Python",
