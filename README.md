@@ -7,7 +7,7 @@
 [![Downloads](https://pepy.tech/badge/random-word)](https://pepy.tech/project/random-word)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://vaibhavsingh97.mit-license.org/)
 
-This is a simple python package to generate random english words.
+This is a simple python package to retrieve random english words from wordnik.com using their API.
 If you need help after reading the below, please find me at [@vaibhavsingh97](https://twitter.com/vaibhavsingh97) on Twitter.
 
 If you love the package, please :star2: the repo.
