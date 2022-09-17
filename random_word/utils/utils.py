@@ -4,9 +4,9 @@ import secrets
 import requests
 
 
-def request_url(url):
+def request_url(url, headers={}):
     try:
-        response = requests.get(url)
+        response = requests.get(url, headers=headers)
     except Exception as e:
         e = sys.exc_info()[0]
         raise e
