@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="Random Word",
-    version="1.0.10",
+    version="1.0.11",
     author="Vaibhav Singh <hi@vaibhavsingh97.com>",
     author_email="hi@vaibhavsingh97.com",
     description="This is a simple python package to generate random english words",

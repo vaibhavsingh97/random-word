@@ -11,5 +11,5 @@ from random_word import ApiNinjas
 api_ninjas_service = ApiNinjas()
 
 # Return a single random word
-wordnik_service.get_random_word()
+api_ninjas_service.get_random_word()
 ```

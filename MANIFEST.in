@@ -1,1 +1,2 @@
 include random_word/config.yml
+include random_word/database/words.json
