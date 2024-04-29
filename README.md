@@ -58,7 +58,7 @@ $ cd random-word
 $ make init
 ```
 
-Add API Key in `random_word` directory defining API Key in `config.yml`. If you don't have an API key, then request your API key [here][wornikWebsiteLink]
+Add API Key in `random_word` directory defining API Key in `config.yml`. If you don't have an API key, then request your API key [here](https://developer.wordnik.com)
 
 ```sh
 API_KEY = "<API KEY>"
