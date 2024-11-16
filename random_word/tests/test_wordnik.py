@@ -14,7 +14,7 @@ API_KEY = get_random_api_key(API_KEYS_LIST)
 
 class TestRandomWord(TestCase):
     # using single instance for all tests
-    r = Wordnik(api_key= API_KEY)
+    r = Wordnik(api_key=API_KEY)
 
     def test_random_word(self):
         word = self.r.get_random_word()

@@ -10,5 +10,6 @@ class TestRandomWord(TestCase):
         word = self.r.get_random_word()
         self.assertIsInstance(word, str)
 
+
 if __name__ == "__main__":
     main()
