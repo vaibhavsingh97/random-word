@@ -1,3 +1,38 @@
 [build-system]
-requires = ["setuptools>=42", "pyyaml", "requests", "wheel"]
-build-backend = "setuptools.build_meta:__legacy__"
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry]
+name="random_word"
+version="1.0.12"
+authors = ["Vaibhav Singh <hi@vaibhavsingh97.com>"]
+description="This is a simple python package to generate random english words"
+license="MIT"
+readme = "README.md"
+keywords=["package", "random words", "word of the day", "random word generator"]
+classifiers=[
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.1",
+    "Programming Language :: Python :: 3.2",
+    "Programming Language :: Python :: 3.3",
+    "Programming Language :: Python :: 3.4",
+    "Programming Language :: Python :: 3.5",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+]
+package-mode = true
+
+[tool.poetry.dependencies]
+python = "^3.8.0"
+requests = "^2.32.3"
+pytest = "^8.3.3"
+pyyaml = "^6.0.2"
+autopep8 = "^2.3.1"

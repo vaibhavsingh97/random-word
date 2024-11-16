@@ -19,8 +19,8 @@ init:
 	@echo 'Install python dependencies'
 	pip install pipenv
 	pip install autopep8
-	pipenv install
-	pipenv shell
+	poetry install
+	poetry shell
 	python setup.py install
 
 test:
