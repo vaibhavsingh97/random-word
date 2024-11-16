@@ -7,7 +7,8 @@ class TestRandomWord(TestCase):
     r = RandomWords()
 
     def test_random_word(self):
-        return self.r.get_random_word()
+        word = self.r.get_random_word()
+        self.assertIsInstance(word, str)
 
 if __name__ == "__main__":
     main()
