@@ -9,5 +9,6 @@ class TestRandomWord(TestCase):
     def test_random_word(self):
         return self.r.get_random_word()
 
+
 if __name__ == "__main__":
     main()

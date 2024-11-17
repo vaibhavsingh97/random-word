@@ -1,6 +1,6 @@
 help:
 	@echo '    init'
-	@echo '        install pipenv and all project dependencies'
+	@echo '        install poetry and all project dependencies'
 	@echo '    test'
 	@echo '        run all tests'
 	@echo '    build'
@@ -17,24 +17,22 @@ help:
 
 init:
 	@echo 'Install python dependencies'
-	pip install pipenv
-	pip install autopep8
-	pipenv install
-	pipenv shell
-	python setup.py install
+	pip install poetry
+	poetry install
+	poetry shell
 
 test:
 	@echo 'Run all tests'
 	pytest
 
 build:
-	python3 -m build
+	poetry build
 
 test_upload:
 	python -m twine upload -r testpypi dist/*
 
 upload:
-	python -m twine upload dist/*
+	poetry publish
 
 clean:
 	find . -name '*.pyc' -exec rm -f {} +
