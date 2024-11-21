@@ -5,7 +5,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name="random_word"
-version="1.0.12"
+version="1.0.13"
 authors = ["Vaibhav Singh <hi@vaibhavsingh97.com>"]
 description="This is a simple python package to generate random english words"
 license="MIT"
