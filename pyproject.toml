@@ -29,6 +29,9 @@ classifiers=[
     "Operating System :: OS Independent",
 ]
 package-mode = true
+include = [
+    "random_word/config.yml"
+]
 
 [tool.poetry.dependencies]
 python = "^3.8.0"
